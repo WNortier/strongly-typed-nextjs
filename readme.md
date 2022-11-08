@@ -52,3 +52,46 @@ NextJS uses the App component to initialize pages. You can override it and contr
 - Add global CSS
 
 > To override the default App, create the file `app/pages/_app.tsx`
+
+```js
+import App from 'next/app'
+import React from 'react'
+
+export default ({ Component, pageProps }) => (
+    <Component {...pageProps} />
+)
+```
+
+#### Document Component
+
+Creating a custom document component in order to augment the applications style tags. This is necessary because NextJS will inject some stylesheets into the document object model using this custom document.
+
+> To override the default document, create the file `app/pages/_document.tsx`
+
+```js
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+
+class MyDocument extends Document {
+    static async getInitialProps(ctx) {
+        const initialProps = await Document.getInitialProps(ctx)
+        return { ...initialProps }
+    }
+
+    render(): JSX.Element {
+        return (
+            <Html>
+                <Head />
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        )
+    }
+}
+
+export default MyDocument
+
+```
+
+`HTML`, `Head`, `Main` and `NextScript` are all required for the page to be rendered correctly and as the document is only rendered on the server side, event handlers such as onClick simply won't work in this context.
