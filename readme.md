@@ -254,7 +254,7 @@ ___
 **How to test:**
 - Similar to testing ISR (to ensure data is fetched from the server)
 
-## 4. ISR (Server Side Rendering)
+## 4. ISR (Incremental Static Regeneration)
 Its a lot like SSG where page is generated at site build, and cached on the server
 
 **Description:** 
