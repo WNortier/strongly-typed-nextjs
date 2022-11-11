@@ -268,6 +268,7 @@ Its a lot like SSG where page is generated at site build, and cached on the serv
 
 ## 4. CSR (Client Side Rendering)
 
+**Description:** 
 - Client fetches data from server
 - State is managed on the server
 
