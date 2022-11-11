@@ -120,8 +120,8 @@ const themeDark = createTheme({
 
 const themeLight = createTheme({
     palette: {
-        primary: { main: grey[200] },
-        secondary: { main: grey[400] },
+        primary: { main: grey[600] },
+        secondary: { main: grey[800] },
     }
 })
 
