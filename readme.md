@@ -266,7 +266,7 @@ Its a lot like SSG where page is generated at site build, and cached on the serv
 - If you need SEO
 - If you want to cache pages with dynamic data
 
-## 4. CSR (Client Side Rendering)
+## 5. CSR (Client Side Rendering)
 
 **Description:** 
 - Client fetches data from server
