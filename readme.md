@@ -244,7 +244,7 @@ ___
 - Since the data does not need FE JavaScript to load, it makes it better for SEO. Search engines don't run JavaScript, thus a page served with its contents is better for SEO
 
 **Cons:** 
-- Server does not work for every request
+- Server has to do work for every request
 - Lag between page load and JavaScript functionality. The page may be served with its content, but users need to wait for the JS to initialize before they can interact with the page
 
 **Alternatives:**
