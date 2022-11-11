@@ -208,4 +208,69 @@ export default function About() {
 
 Congratulations, we've created a NextJS application with Material UI as our theme provider.
 
+___
+# NextJS Data Fetching Strategies
 
+![data-fetching-strategies](./images/01.png)
+
+## 1. Static Page
+
+**Description:** 
+- No data from database
+
+**When to use:** 
+- The page does not need database data
+
+## 2. SSG (Static Site Generation)
+
+**Description:** 
+- Uses data from database
+- Generated on app build
+- Does not update after app build
+- Only time data may change is when you rebuild the app
+
+**When to use:** 
+- The data does not change 
+
+## 3. SSR (Server Side Rendering)
+
+**Description:** 
+- Differs from SSG in that it builds the page on every request
+- The page is built on the server hence the "server side" reference
+- HTML with data is sent to the client
+
+**Pros:** 
+- Often faster to "first contentful paint" (Servers are faster than clients)
+- Since the data does not need FE JavaScript to load, it makes it better for SEO. Search engines don't run JavaScript, thus a page served with its contents is better for SEO
+
+**Cons:** 
+- Server does not work for every request
+- Lag between page load and JavaScript functionality. The page may be served with its content, but users need to wait for the JS to initialize before they can interact with the page
+
+**Alternatives:**
+- ISR for SEO  
+- CSR for pages that do not need SEO
+
+**How to test:**
+- Similar to testing ISR (to ensure data is fetched from the server)
+
+## 4. ISR (Server Side Rendering)
+Its a lot like SSG where page is generated at site build, and cached on the server
+
+**Description:** 
+- Page is generated statically
+- Cached on server
+- The difference comes in that you are able to update the cache either on an interval (e.g. 1min) or on-demand
+
+**When to use:** 
+- If you need SEO
+- If you want to cache pages with dynamic data
+
+## 4. CSR (Client Side Rendering)
+
+- Client fetches data from server
+- State is managed on the server
+
+**When to use:** 
+- If SEO is not required (e.g. a client dashboard which has dynamic data that is not relevant to SEO)
+- If you want to update data on an interval (e.g. every 30secs)
